@@ -2,7 +2,6 @@ import axios from 'axios'
 import TelegramBot from 'node-telegram-bot-api'
 import shortNumber from '@pogix3m/short-number';
 import express from 'express'
-import fetch from 'node-fetch'
 import {convert} from 'html-to-text';
 import dotenv from 'dotenv'
 dotenv.config()
