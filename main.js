@@ -4,6 +4,7 @@ import shortNumber from '@pogix3m/short-number';
 import express from 'express'
 import {convert} from 'html-to-text';
 import dotenv from 'dotenv'
+import { toUpperCase, toTitleCase} from './utils/index.js'
 dotenv.config()
 const TOKEN = process.env.TOKEN
 const API_KEY = process.env.X_RapidAPI_Key
@@ -21,15 +22,6 @@ app.get('/', (req, res) => {res.status(200).json({success : true, message : 'ðŸ¤
 const options = {
     method: 'GET',
     url: 'https://coinranking1.p.rapidapi.com/coins',
-    // params: {
-    //     referenceCurrencyUuid: 'yhjMzLPhuIDl',
-    //     timePeriod: '24h',
-    //     'tiers[0]': '1',
-    //     orderBy: 'marketCap',
-    //     orderDirection: 'desc',
-    //     limit: '100',
-    //     offset: '0'
-    // },
     headers: {
         'X-RapidAPI-Key': API_KEY,
         'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
@@ -103,23 +95,23 @@ axios.request(options).then(function (response) {
 
         const crypto = (query) => {
 
-            function toTitleCase(str) {
-                return str.replace(
-                  /\w\S*/g,
-                  function(txt) {
-                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                  }
-                );
-              }
+            // function toTitleCase(str) {
+            //     return str.replace(
+            //       /\w\S*/g,
+            //       function(txt) {
+            //         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            //       }
+            //     );
+            //   }
 
-            function toUpperCase(str) {
-                return str.replace(
-                  /\w\S*/g,
-                  function(txt) {
-                    return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
-                  }
-                );
-            }
+            // function toUpperCase(str) {
+            //     return str.replace(
+            //       /\w\S*/g,
+            //       function(txt) {
+            //         return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
+            //       }
+            //     );
+            // }
 
               const item = toTitleCase(query)
               const item2 = toUpperCase(query)
